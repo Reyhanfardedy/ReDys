@@ -76,6 +76,14 @@ hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active"); // Toggle the active class
 });
 
+// Fungsi untuk menutup menu saat mengklik di luar navbar
+document.addEventListener("click", (event) => {
+  // Cek apakah klik terjadi di luar hamburger dan navbar
+  if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+    navLinks.classList.remove("active"); // Hapus kelas 'active' untuk menutup menu
+  }
+});
+
 document.getElementById("background-music").volume = 0.5; // Set volume to 50%
 const musicToggle = document.getElementById("music-toggle");
 const backgroundMusic = document.getElementById("background-music");
