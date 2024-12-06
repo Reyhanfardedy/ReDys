@@ -77,3 +77,31 @@ hamburger.addEventListener("click", () => {
 });
 
 document.getElementById("background-music").volume = 0.5; // Set volume to 50%
+const musicToggle = document.getElementById("music-toggle");
+const backgroundMusic = document.getElementById("background-music");
+
+musicToggle.addEventListener("click", function () {
+  if (backgroundMusic.paused) {
+    backgroundMusic.play();
+    musicToggle.textContent = "Pause Music"; // Ubah teks tombol
+  } else {
+    backgroundMusic.pause();
+    musicToggle.textContent = "Play Music"; // Ubah teks tombol
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const userLanguage = navigator.language || navigator.userLanguage; // Mendapatkan bahasa pengguna
+  const languageCode = userLanguage.startsWith("id") ? "id" : "en"; // Cek apakah bahasa Indonesia
+
+  updateLanguage(languageCode); // Memperbarui bahasa berdasarkan kode
+
+  function updateLanguage(lang) {
+    const elements = document.querySelectorAll(
+      "[data-lang-id], [data-lang-en]"
+    );
+    elements.forEach((element) => {
+      element.textContent = element.getAttribute(`data-lang-${lang}`);
+    });
+  }
+});
