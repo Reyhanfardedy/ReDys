@@ -77,34 +77,3 @@ hamburger.addEventListener("click", () => {
 });
 
 document.getElementById("background-music").volume = 0.5; // Set volume to 50%
-
-// Get the modal
-var modals = document.querySelectorAll(".modal");
-var openButtons = document.querySelectorAll(".open-modal");
-var closeButtons = document.querySelectorAll(".close");
-
-// Open modal
-openButtons.forEach(function (button) {
-  button.onclick = function () {
-    var modalId = this.getAttribute("data-modal");
-    document.getElementById(modalId).style.display = "block";
-  };
-});
-
-// Close modal
-closeButtons.forEach(function (button) {
-  button.onclick = function () {
-    modals.forEach(function (modal) {
-      modal.style.display = "none";
-    });
-  };
-});
-
-// Close modal when clicking outside of it
-window.onclick = function (event) {
-  modals.forEach(function (modal) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  });
-};
